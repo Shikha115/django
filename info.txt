@@ -1,0 +1,198 @@
+https://youtu.be/DNFTUtZf1Zc
+==============
+
+
+created project using command
+======================
+django-admin startproject companyapi .
+
+
+
+
+run project using command
+===============
+python manage.py runserver
+
+django db  y default
+=============
+db.sqlite3
+
+
+views
+================
+type - class based, function based
+we are using function based
+
+save changes of setting
+==================
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+
+to create apis
+===================
+python3 manage.py startapp anyName
+it will already have models, views etc in it
+
+api
+=============
+http://127.0.0.1:8000/api/agents - to read or create agents using get and post method
+http://127.0.0.1:8000/api/agents/{id}/ - to read or update or delete a specific agent using get, patch, delete method
+http://127.0.0.1:8000/api/campaigns - to read or create agents using get and post method
+http://127.0.0.1:8000/api/campaigns/{id}/ - to read or update or delete a specific agent using get, patch, delete method
+http://127.0.0.1:8000/api/campaign-results - to read or create campaign-results using get and post method
+http://127.0.0.1:8000/api/campaign-results/{id}/ - to read or update or delete a specific campaign-results using get, patch, delete method
+
+
+
+
+
+
+dummy data
+===============
+agents
+========
+[
+  {
+    "agent_name": "Jose Alinson",
+    "language": "English",
+    "voice_id": "voice-1234-xyz",
+    "updated": "2024-11-25T12:00:00Z"
+  },
+  {
+    "agent_name": "Maria Fernandez",
+    "language": "Spanish",
+    "voice_id": "voice-5678-abc",
+    "updated": "2024-11-25T12:30:00Z"
+  },
+  {
+    "agent_name": "John Doe",
+    "language": "English",
+    "voice_id": "voice-9876-pqr",
+    "updated": "2024-11-25T13:00:00Z"
+  },
+  {
+    "agent_name": "Lily Tran",
+    "language": "Vietnamese",
+    "voice_id": "voice-1122-stu",
+    "updated": "2024-11-25T14:00:00Z"
+  },
+  {
+    "agent_name": "David Kim",
+    "language": "Korean",
+    "voice_id": "voice-3344-vwx",
+    "updated": "2024-11-25T15:00:00Z"
+  }
+]
+
+Campaign
+===========
+[
+  {
+    "campaign_name": "Campaign Alpha",
+    "campaign_type": "Outbound",
+    "phone_number": "123-456-7890",
+    "status": "Running",
+    "agent": 1  # Agent with ID 1 (Jose Alinson)
+  },
+  {
+    "campaign_name": "Campaign Beta",
+    "campaign_type": "Inbound",
+    "phone_number": "098-765-4321",
+    "status": "Paused",
+    "agent": 2  # Agent with ID 2 (Maria Fernandez)
+  },
+  {
+    "campaign_name": "Campaign Gamma",
+    "campaign_type": "Outbound",
+    "phone_number": "555-123-4567",
+    "status": "Completed",
+    "agent": 3  # Agent with ID 3 (John Doe)
+  },
+  {
+    "campaign_name": "Campaign Delta",
+    "campaign_type": "Inbound",
+    "phone_number": "555-765-4321",
+    "status": "Running",
+    "agent": 4  # Agent with ID 4 (Lily Tran)
+  },
+  {
+    "campaign_name": "Campaign Epsilon",
+    "campaign_type": "Outbound",
+    "phone_number": "777-111-2222",
+    "status": "Paused",
+    "agent": 5  # Agent with ID 5 (David Kim)
+  }
+]
+
+
+
+CampaignResult
+==============
+[
+  {
+    "name": "Result 1",
+    "result_type": "Successful Call",
+    "phone": "123-456-7890",
+    "cost": 50.75,
+    "outcome": "Success",
+    "call_duration": 120.5,
+    "recording": "http://example.com/recording/1.mp3",
+    "summary": "The call went well, the customer was interested in the offer.",
+    "transcription": "Hello, this is Jose from Campaign Alpha. We have an exciting offer for you. Do you have a minute to talk?",
+    "campaign":"1"
+  },
+  {
+    "name": "Result 2",
+    "result_type": "Failed Call",
+    "phone": "098-765-4321",
+    "cost": 30.25,
+    "outcome": "Failure",
+    "call_duration": 45.0,
+    "recording": "http://example.com/recording/2.mp3",
+    "summary": "The call failed, the customer didn't answer.",
+    "transcription": "Hello, this is Maria from Campaign Beta. Sorry we missed you. Please call back later.",
+    "campaign":"2"
+  },
+  {
+    "name": "Result 3",
+    "result_type": "Successful Call",
+    "phone": "555-123-4567",
+    "cost": 65.50,
+    "outcome": "Success",
+    "call_duration": 180.0,
+    "recording": "http://example.com/recording/3.mp3",
+    "summary": "The customer expressed interest, and we scheduled a follow-up call.",
+    "transcription": "Hi, this is John from Campaign Gamma. Thanks for your time today. We'd love to follow up on the details we discussed.",
+    "campaign":"3"
+  },
+  {
+    "name": "Result 4",
+    "result_type": "Failed Call",
+    "phone": "555-765-4321",
+    "cost": 25.50,
+    "outcome": "Failure",
+    "call_duration": 30.0,
+    "recording": "http://example.com/recording/4.mp3",
+    "summary": "Customer was unavailable during the call.",
+    "transcription": "Hello, this is Lily from Campaign Delta. Sorry we missed you. We'll try calling again soon.",
+    "campaign":"4"
+  },
+  {
+    "name": "Result 5",
+    "result_type": "Successful Call",
+    "phone": "777-111-2222",
+    "cost": 40.00,
+    "outcome": "Success",
+    "call_duration": 150.0,
+    "recording": "http://example.com/recording/5.mp3",
+    "summary": "The customer was interested in the product and requested a demo.",
+    "transcription": "Hi, this is David from Campaign Epsilon. We'd love to show you more about our product. When would be a good time for a demo?",
+    "campaign":"5"
+  }
+]
+
+
+
+
+
